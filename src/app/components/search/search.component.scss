@@ -1,0 +1,26 @@
+:host {
+  .search {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    border-radius: 25px;
+    width: 100%;
+    color: var(--terciary);
+    background-color: var(--secondary);
+  }
+
+  .label-search {
+    margin: 2px 4px;
+  }
+
+  .search-input {
+    background: none;
+    border: none;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+}

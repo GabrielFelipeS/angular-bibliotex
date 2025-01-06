@@ -1,0 +1,41 @@
+:host {
+  header {
+    top: 0;
+    position: sticky;
+    background-color: var(--background);
+  }
+
+  .search {
+    width: 20%;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+    filter: invert(80%);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--secondary);
+
+    ul li {
+      display: inline-block;
+      margin: 0 20px;
+
+      a {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-bottom: 5px solid var(--background);
+
+        &:hover {
+          border-bottom: 5px solid var(--primary);
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+}
