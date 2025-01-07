@@ -189,7 +189,7 @@
 
     .cloud {
       position: absolute;
-      top: 10%;
+      top: 2%;
       width: 150px;
       height: 80px;
       background: #fff;
@@ -205,25 +205,25 @@
     }
 
     .cloud:nth-child(2) {
-      top: 15%;
+      top: 10%;
       animation-duration: 24s;
       animation-delay: -3s;
     }
 
     .cloud:nth-child(3) {
-      top: 20%;
+      top: 15%;
       animation-duration: 18s;
       animation-delay: -5s;
     }
 
     .cloud:nth-child(4) {
-      top: 25%;
-      animation-duration: 14s;
+      top: 20%;
+      animation-duration: 16s;
       animation-delay: -2s;
     }
 
     .cloud:nth-child(5) {
-      top: 30%;
+      top: 25%;
       animation: none;
     }
 
@@ -242,6 +242,12 @@
     .cloud:nth-child(8) {
       top: 12%;
       left: 90%;
+      animation: none;
+    }
+
+    .cloud:nth-child(9) {
+      top: 33%;
+      left: 20%;
       animation: none;
     }
 
