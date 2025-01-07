@@ -53,6 +53,7 @@
    {
     transform: translateY(-20px);
     color: var(--primary);
+    border: none;
   }
 
   .section-login-form input:invalid:not(:placeholder-shown) ~ label {
@@ -185,6 +186,7 @@
     height: 100vh;
     overflow: hidden;
 
+
     .cloud {
       position: absolute;
       top: 10%;
@@ -222,8 +224,25 @@
 
     .cloud:nth-child(5) {
       top: 30%;
-      animation-duration: 12s;
-      animation-delay: -3s;
+      animation: none;
+    }
+
+    .cloud:nth-child(6) {
+      top: 30%;
+      animation: none;
+      left: 60%;
+    }
+
+    .cloud:nth-child(7) {
+      top: 7%;
+      left: 10%;
+      animation: none;
+    }
+
+    .cloud:nth-child(8) {
+      top: 12%;
+      left: 90%;
+      animation: none;
     }
 
     @keyframes move {
