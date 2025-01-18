@@ -1,0 +1,144 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .section-art {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // justify-content: space-around;
+    // align-items: center;
+    background-color: #3284BE;
+  }
+
+  .art-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--secondary);
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .art-text-title {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 90px;
+    line-height: 70px;
+
+  }
+
+  .art-text span{
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 70px;
+    color: #E7C160;
+  }
+
+  .art-text-describe {
+    color: #EEEEEE;
+    font-weight: bold;
+  }
+
+  .art-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .art-login {
+    align-self: flex-end;
+    margin-bottom: 28px;
+  }
+
+  .sky {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+
+    .cloud {
+      position: absolute;
+      top: 2%;
+      width: 150px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow:
+        30px 20px 0px 0px #fff,
+        60px 40px 0px 0px #fff,
+        -30px 20px 0px 0px #fff;
+      animation: move 10s linear infinite;
+      left: -150px;
+      animation-duration: 30s;
+      animation-delay: -5s;
+    }
+
+    .cloud:nth-child(2) {
+      top: 10%;
+      animation-duration: 24s;
+      animation-delay: -3s;
+    }
+
+    .cloud:nth-child(3) {
+      top: 15%;
+      animation-duration: 18s;
+      animation-delay: -5s;
+    }
+
+    .cloud:nth-child(4) {
+      top: 20%;
+      animation-duration: 16s;
+      animation-delay: -2s;
+    }
+
+    .cloud:nth-child(5) {
+      top: 25%;
+      animation: none;
+    }
+
+    .cloud:nth-child(6) {
+      top: 30%;
+      animation: none;
+      left: 60%;
+    }
+
+    .cloud:nth-child(7) {
+      top: 7%;
+      left: 10%;
+      animation: none;
+    }
+
+    .cloud:nth-child(8) {
+      top: 12%;
+      left: 90%;
+      animation: none;
+    }
+
+    .cloud:nth-child(9) {
+      top: 33%;
+      left: 20%;
+      animation: none;
+    }
+
+    @keyframes move {
+      0% {
+        left: -200px;
+      }
+      100% {
+        left: 100vw;
+      }
+    }
+  }
+
+  @media screen and (max-width : 800px){
+    .section-art {
+      display: none;
+    }
+  }
+}

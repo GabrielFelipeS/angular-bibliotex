@@ -1,1 +1,30 @@
-<app-sign-in/>
+@if (isLogin()) {
+  <app-sign-in @login-auth (eventEmitter)="toggleAuth()"/>
+}
+
+<section class="section-art sky">
+  <div class="art-text">
+   <div>
+    <p class="art-text-title">Bem vindo ao</p>
+    <span>BIBLIOTEX</span>
+    <p class="art-text-describe">Faça login para acessar todas as funcionalidades</p>
+   </div>
+  </div>
+  <div class="art-img">
+    <img class="art-login" src="./assets/imgs/art_login.png" alt="Imagem ilustrativa" width="678px" height="544px">
+  </div>
+
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+</section>
+
+@if (isNotLogin) {
+  <app-sign-up @register-auth (eventEmitter)="toggleAuth()"/>
+}
