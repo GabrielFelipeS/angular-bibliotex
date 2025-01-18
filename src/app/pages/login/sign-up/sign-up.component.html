@@ -1,0 +1,35 @@
+<section class="container section-login">
+  <div class="container-login">
+      <h1 class="title">Register</h1>
+      <p>Insira os detalhes da sua conta</p>
+      <form class="section-login-form">
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="name" id="name" placeholder="" required>
+          <label for="name">Nome</label>
+        </div>
+
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="email" id="email" placeholder="" required>
+          <label for="email">Email</label>
+        </div>
+
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="password" id="password" placeholder="" required>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="password" id="confirmation-password" placeholder="" required>
+          <label for="confirmation-password">Confirmation Password</label>
+        </div>
+
+
+        <button class="buttons submit" type="submit">Registrar</button>
+      </form>
+  </div>
+
+    <a class="sign-in" (click)="toggleAuth()">
+      Já possui uma conta? <span>Logar</span>
+    </a>
+
+  </section>
