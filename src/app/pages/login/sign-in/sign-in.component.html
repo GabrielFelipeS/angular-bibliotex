@@ -4,13 +4,13 @@
       <p>Insira os detalhes da sua conta</p>
       <form class="section-login-form">
 
-        <div class="section-login-form">
-          <input type="email" id="email" placeholder required>
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="email" id="email" placeholder="" required>
           <label for="email">Email</label>
         </div>
 
-        <div class="section-login-form">
-          <input type="password" id="password" placeholder required>
+        <div class="section-login-form section-input-animation">
+          <input class="input-animation" type="password" id="password" placeholder="" required>
           <label for="password">Password</label>
         </div>
 
@@ -18,27 +18,27 @@
 
         <button class="buttons submit" type="submit">Login</button>
       </form>
-      <p class="buttons facebook-login">Continuar com o Facebook <img src="./assets/icons/facebook.png" alt="facebook" width="20px" height="20px"></p>
-      <p class="buttons google-login">Continuar com o Google <img src="./assets/icons/google.png" alt="google" width="20px" height="20px"></p>
+      <!-- <p class="buttons facebook-login" (click)="facebookLogin()">Continuar com o Facebook <img src="./assets/icons/facebook.png" alt="facebook" width="20px" height="20px"></p> -->
+      <p class="buttons google-login" (click)="googleLogin()">Continuar com o Google <img src="./assets/icons/google.png" alt="google" width="20px" height="20px"></p>
   </div>
 
-    <a class="sign-up">
+    <a class="sign-up" (click)="toggleAuth()">
       Não tem uma conta? <span>Inscreva-se</span>
     </a>
 
   </section>
 
-  <section class="section-art sky">
-    <section class="section-text">
+  <!-- <section class="section-art sky">
+    <div class="art-text">
      <div>
-      <p class="section-text-title">Bem vindo ao</p>
+      <p class="art-text-title">Bem vindo ao</p>
       <span>BIBLIOTEX</span>
-      <p class="section-text-describe">Faça login para acessar todas as funcionalidades</p>
+      <p class="art-text-describe">Faça login para acessar todas as funcionalidades</p>
      </div>
-    </section>
-    <section class="section-img">
+    </div>
+    <div class="art-img">
       <img class="art-login" src="./assets/imgs/art_login.png" alt="Imagem ilustrativa" width="678px" height="544px">
-    </section>
+    </div>
 
     <div class="cloud"></div>
     <div class="cloud"></div>
@@ -49,4 +49,4 @@
     <div class="cloud"></div>
     <div class="cloud"></div>
     <div class="cloud"></div>
-  </section>
+  </section> -->

@@ -1,0 +1,43 @@
+.input-animation {
+  background-color: transparent;
+  border: none;
+  border-bottom: red;
+}
+
+.input-animation {
+  margin-top: 35px;
+  border-bottom: 2px solid silver;
+  color: var(--secondary) !important;
+}
+
+.input-animation:invalid:not(:placeholder-shown) {
+  border-bottom: 2px solid red;
+}
+
+.input-animation:valid {
+  border-bottom: 2px solid var(--primary);
+}
+
+.input-animation ~ label {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: var(--secondary);
+  font-family: Poppins;
+  transition: 0.3s;
+}
+
+.input-animation:focus ~ label,
+.input-animation:valid ~ label
+ {
+  transform: translateY(-20px);
+  color: var(--primary) !important;
+  border: none;
+}
+
+.input-animation:invalid:not(:placeholder-shown) ~ label {
+  transform: translateY(-20px);
+  color: red !important;
+}
+
+
