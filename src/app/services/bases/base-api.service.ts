@@ -24,8 +24,8 @@ export abstract class BaseApiService<T> {
     );
   }
 
-  update(data: T, headers?: HttpHeaders): Observable<T>  {
-    return this.http.put<T>(`${this.baseUrl}/`, {data}, {headers}).pipe(
+  update(id: number, data: T, headers?: HttpHeaders): Observable<T>  {
+    return this.http.put<T>(`${this.baseUrl}/${id}`, {data}, {headers}).pipe(
       catchError(this.handleError)
     );
   }
