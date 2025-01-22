@@ -2,25 +2,30 @@
   <div class="container-login">
       <h1 class="title">Login</h1>
       <p>Insira os detalhes da sua conta</p>
-      <form class="section-login-form">
+      <form class="section-login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
         <div class="section-login-form section-input-animation">
-          <input class="input-animation" type="email" id="email" placeholder="" required>
-          <label for="email">Email</label>
+          <input class="input-animation" type="text" id="username" formControlName="username" placeholder required>
+          <label for="username">Username</label>
         </div>
 
         <div class="section-login-form section-input-animation">
-          <input class="input-animation" type="password" id="password" placeholder="" required>
+          <input class="input-animation" type="password" id="password" formControlName="password" placeholder required>
           <label for="password">Password</label>
         </div>
 
         <a class="forgot-password">Esqueceu sua senha?</a>
 
-        <button class="buttons submit" type="submit">Login</button>
+        <button class="buttons submit" type="submit" [disabled]="loginForm.invalid">Login</button>
       </form>
-      <!-- <p class="buttons facebook-login" (click)="facebookLogin()">Continuar com o Facebook <img src="./assets/icons/facebook.png" alt="facebook" width="20px" height="20px"></p> -->
+
       <p class="buttons google-login" (click)="googleLogin()">Continuar com o Google <img src="./assets/icons/google.png" alt="google" width="20px" height="20px"></p>
-  </div>
+
+      <div class="more-options">
+        <p class="buttons facebook-login" (click)="facebookLogin()"><span> Continuar com o Facebook  </span><img src="./assets/icons/facebook.png" alt="facebook" width="20px" height="20px"></p>
+        <p class="buttons github-login" (click)="githubLogin()"><span>Continuar com o Github</span> <img src="./assets/icons/logotipo-do-github.png" alt="github" width="20px" height="20px"></p>
+      </div>
+    </div>
 
     <a class="sign-up" (click)="toggleAuth()">
       Não tem uma conta? <span>Inscreva-se</span>

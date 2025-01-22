@@ -1,17 +1,45 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
+import { FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [MatIconModule],
+  imports: [MatIconModule, ReactiveFormsModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss'
 })
 export class SignInComponent  implements OnInit {
   @Output() eventEmitter = new EventEmitter<void>()
+  loginForm: FormGroup;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _authService: AuthService, private fb: FormBuilder) {
+    this.loginForm = fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+
+  onSubmit() {
+    console.log("aqui")
+    if(this.loginForm.valid) {
+      const formValue = this.loginForm.value
+      this._authService
+        .login(formValue.username, formValue.password)
+        // .login('kaizen', '123')
+        .subscribe(auth => {
+          if(auth.success) {
+            this.router.navigate(['/home']);
+          } else {
+            console.log("error")
+          }
+        })
+    } else {
+      console.log("error")
+    }
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -23,45 +51,25 @@ export class SignInComponent  implements OnInit {
     });
   }
 
+
+  facebookLogin() {
+    this.authLogin('facebook')
+  }
+
   googleLogin() {
-    const authUrl = 'http://localhost:7080/realms/bibliotex/protocol/openid-connect/auth?client_id=bibliotex-cc&redirect_uri=http://localhost:4200/login&response_type=code&scope=openid&state=xyz123&kc_idp_hint=google';
-    window.location.href = 'https://google.com';
+    this.authLogin('google')
   }
 
   githubLogin() {
-    console.log("Github")
+    this.authLogin('github')
   }
 
-  openLoginWindow() {
-    const authUrl = 'http://localhost:7080/realms/bibliotex/protocol/openid-connect/auth?client_id=bibliotex-cc&redirect_uri=http://localhost:4200/login&response_type=code&scope=openid&state=xyz123&kc_idp_hint=google';
-
-    // Abrir a janela pop-up
-    const width = 600;
-    const height = 600;
-    const left = (window.innerWidth / 2) - (width / 2);  // Centrar na tela
-    const top = (window.innerHeight / 2) - (height / 2); // Centrar na tela
-
-    const popup = window.open(authUrl, 'Login', `width=${width},height=${height},top=${top},left=${left}`);
-
-    // Verificar quando a janela pop-up for fechada ou redirecionada
-    const checkPopupClosed = setInterval(() => {
-      if (popup && popup.closed) {
-        clearInterval(checkPopupClosed);
-        // Aqui você pode fazer algo, como verificar se o login foi bem-sucedido
-        console.log('Pop-up fechado');
-      }
-
-      if (popup && popup.location.href.includes('callback')) {
-        const url = popup.location.href;
-        const code = this.getCodeFromUrl(url);
-        if (code) {
-          // Aqui você pode fazer algo com o código (ou token) recebido, por exemplo, trocá-lo por um access_token
-          console.log('Código recebido:', code);
-        }
-      }
-    }, 1000);
-
+  private authLogin(kc_idp_hint: string) {
+    const authUrl = `${environment.keycloakUri}/realms/${environment.realms}/protocol/openid-connect/auth?client_id=${environment.client_id}&redirect_uri=${environment.keycloakRedirect}&response_type=code&scope=openid&state=xyz123&kc_idp_hint=${kc_idp_hint}`;
+    console.log(authUrl)
+    window.location.href = authUrl;
   }
+
 
   toggleAuth() {
     this.eventEmitter.emit()
